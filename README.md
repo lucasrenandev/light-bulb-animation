@@ -1,2 +1,1 @@
-# light-bulb-animation
-Light Bulb CSS Animation
+# Light Bulb CSS Animation
