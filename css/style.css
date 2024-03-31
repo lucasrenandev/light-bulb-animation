@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: radial-gradient(#333, #111);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section.active {
+    background-image: radial-gradient(#444, #111);
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 32%;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 120px;
+    background-color: #444;
+    border-top: 40px solid #000;
+    border-radius: 15px 15px 5px 5px;
+}
+.section.active .box {
+    background-color: #fff;
+}
+
+.light {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 140px;
+    height: 140px;
+    background-color: #444;
+    border-radius: 50%;
+    box-shadow: none;
+}
+.section.active .light {
+    background-color: #fff;
+    box-shadow: 0 0 50px #fff,
+    0 0 100px #fff,
+    0 0 150px #fff,
+    0 0 200px #fff,
+    0 0 250px #fff,
+    0 0 300px #fff,
+    0 0 350px #fff;
+}
+.light::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: #444;
+    border-bottom-right-radius: 40px;
+    transform: rotate(175deg);
+}
+.light::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: #444;
+    border-bottom-right-radius: 40px;
+    transform: rotate(280deg);
+}
+.section.active .light::before, 
+.section.active .light::after  {
+    background-color: #fff;
+}
+
+.button-box {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.button-box button {
+    position: relative;
+    width: 25px;
+    height: 40px;
+    outline: none;
+    border: 2px solid #000;
+    background-image: linear-gradient(#777, #fff, #777);
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1;
+}
+.button-box button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    border: none;
+    background-image: linear-gradient(#fff, #fff);
+    border-radius: 4px;
+    z-index: -1;
+}
+.section.active .button-box button::before {
+    top: 15%;
+}
