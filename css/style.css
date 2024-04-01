@@ -2,17 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-image: radial-gradient(#333, #111);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .section.active {
     background-image: radial-gradient(#555, #111);
@@ -20,18 +16,18 @@
 
 .wire {
     position: absolute;
-    top: 0;
+    top: calc(50% - 50%);
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
-    height: 32%;
+    height: 50%;
     background-color: #000;
-    border-radius: 5px;
+    z-index: 1;
 }
 
 .socket {
     position: absolute;
-    top: 30%;
+    top: calc(50% - 130px);
     left: 50%;
     transform: translateX(-50%);
     width: 55px;
@@ -39,6 +35,7 @@
     background-color: #444;
     border-top: 40px solid #000;
     border-radius: 15px 15px 5px 5px;
+    z-index: 2;
 }
 .section.active .socket {
     background-color: #fff;
@@ -54,6 +51,7 @@
     background-color: #444;
     border-radius: 50%;
     box-shadow: none;
+    z-index: 2;
 }
 .section.active .lamp {
     background-color: #fff;
@@ -68,24 +66,24 @@
 .lamp::before {
     content: "";
     position: absolute;
-    top: -2px;
+    top: 6px;
     left: 30px;
     width: 30px;
     height: 30px;
     background-color: #444;
     border-bottom-right-radius: 40px;
-    transform: rotate(175deg);
+    transform: rotate(135deg);
 }
 .lamp::after {
     content: "";
     position: absolute;
-    top: -2px;
+    top: 6px;
     right: 30px;
     width: 30px;
     height: 30px;
     background-color: #444;
     border-bottom-right-radius: 40px;
-    transform: rotate(280deg);
+    transform: rotate(-45deg);
 }
 .section.active .lamp::before, 
 .section.active .lamp::after  {
@@ -106,6 +104,7 @@
 }
 
 .button-box button {
+    display: inline-block;
     position: relative;
     width: 25px;
     height: 40px;
